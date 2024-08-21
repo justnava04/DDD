@@ -25,8 +25,7 @@ if classifier == 'KNN':
   y_pred = knn.predict(x.reshape(-1, 1))
   plt.scatter(x, y)
   plt.scatter(x, y_pred)
-  acc = accuracy_score(y_test, y_pred)
-  st.write(acc)
+  
 if classifier == 'SVM':
   svm = SVC()
   svm.fit(x_train, y_train)
