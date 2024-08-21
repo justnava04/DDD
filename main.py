@@ -15,6 +15,7 @@ x = df.iloc[:, :-1]
 y = df['species']
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+k = st.sidebar.slider('K', 1, 120, 3)
 
 st.sidebar.title('Classifiers')
 classifier = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM','DT','RF','NN'))
