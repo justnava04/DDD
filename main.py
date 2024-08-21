@@ -23,6 +23,11 @@ if classifier == 'KNN':
   knn = KNeighborsClassifier(n_neighbors=3)
   knn.fit(x_train, y_train)
   y_pred = knn.predict(x_test)
+  
+  y_pred = knn.predict(x.reshape(-1, 1))
+  plt.scatter(x, y)
+  plt.scatter(x, y_pred)
+  
   acc = accuracy_score(y_test, y_pred)
   st.write(acc)
 if classifier == 'SVM':
