@@ -7,6 +7,7 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
+import matplotlib.pyplot as plt
 
 df = sns.load_dataset('iris')
 df
@@ -23,9 +24,16 @@ if classifier == 'KNN':
   knn = KNeighborsClassifier(n_neighbors=3)
   knn.fit(x.reshape(-1, 1), y)
   y_pred = knn.predict(x.reshape(-1, 1))
-  plt.scatter(x, y)
-  plt.scatter(x, y_pred)
-  
+  plt.scatter(x, y, label='Data')
+  plt.scatter(x, y_pred, label='Prediction')
+  plt.legend()
+  plt.xlabel('x')
+  plt.ylabel('y')
+  plt.title('KNN Regression')
+  plt.show()
+
+
+
 if classifier == 'SVM':
   svm = SVC()
   svm.fit(x_train, y_train)
